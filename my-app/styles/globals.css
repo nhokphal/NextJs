@@ -10,9 +10,18 @@ a {
   color: inherit;
   text-decoration: none;
 }
+.logo{
+  color: orange;
+  margin: 10px;
 
+}
 * {
   box-sizing: border-box;
+}
+
+.error {
+  gap: 20px;
+  margin: 50px;
 }
 
 @media (prefers-color-scheme: dark) {

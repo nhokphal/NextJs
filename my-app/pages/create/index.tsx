@@ -1,7 +1,36 @@
-import React from "react"
+import React, { ReactNode } from "react"
+import { InferGetStaticPropsType } from 'next';
 
-const Index = () => 
+type Data = {
+  message: string;
+  result: {
+    id: string;
+    films: string;
+    people: string;
+    planets: string;
+    species: string;
+    vehicles: string;
+  };
+};
+
+export const getStaticProps = async () => {
+
+    // response
+    const res = await fetch('https://www.swapi.tech/api/');
+    //convert
+    const data: Data[] = await res.json();
+    return {
+        props: {
+            data
+        }
+    }
+}
+
+
+
+const Index = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) =>
 {
+
     return (
         <div>
         <h1>
